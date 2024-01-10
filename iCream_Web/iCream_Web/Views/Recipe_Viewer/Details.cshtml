@@ -1,0 +1,72 @@
+﻿@model iCream_Web.Models.Recipe_Viewer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/_LayoutPageofCustomer";
+}
+
+<!-- Header Start -->
+<div class="jumbotron jumbotron-fluid page-header" style="margin-bottom: 90px;">
+    <div class="container text-center py-5">
+        <h1 class="text-white display-3 mt-lg-5">Details</h1>
+        <div class="d-inline-flex align-items-center text-white">
+            <p class="m-0"><a class="text-white" href="https://localhost:44362/Home/Order">Order</a></p>
+            <i class="fa fa-circle px-3"></i>
+            <p class="m-0"><a class="text-white" href="https://localhost:44362/Recipe_Viewer/Index">Recipe</a></p>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+<!-- Portfolio Start -->
+<div class="container-fluid py-2 px-0">
+    <div class="container py-2">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <h1 class="position-relative text-center mb-5">Details Ice Cream</h1>
+            </div>
+            <dl class="dl-horizontal">
+                <dt>
+                    NameViewer
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.recipeV_nameViewer)
+                </dd>
+
+                <dt>
+                    Name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.recipeV_name)
+                </dd>
+
+                <dt>
+                    Text
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.recipeV_text)
+                </dd>
+
+                <dt>
+                    Category name
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Category_Recipe.category_name)
+                </dd>
+
+            </dl>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <p>
+                    @Html.ActionLink("Back", "Index")
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio End-->

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6a6bd0f08d2c41acba73baa18e4a98cc" Name="Diagram1">
+        <EntityTypeShape EntityType="iCreamModel.Admin" Width="1.5" PointX="7.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="iCreamModel.Category_Recipe" Width="1.5" PointX="3.375" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="iCreamModel.Feedback" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="iCreamModel.Recipe_Viewer" Width="1.5" PointX="5.625" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="iCreamModel.FK_Recipe_Viewer_Category_Recipe" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="iCreamModel.FaQ" Width="1.5" PointX="7.75" PointY="5.25" />
+        <EntityTypeShape EntityType="iCreamModel.Customer_1" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="iCreamModel.Book" Width="1.5" PointX="0.75" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

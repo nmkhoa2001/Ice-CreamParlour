@@ -1,0 +1,70 @@
+﻿@model IEnumerable<iCream_Admin.Models.Customer_1>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int num = 1;
+}
+
+<br />
+<!-- Portfolio Start -->
+<div class="container-fluid py-3 px-3">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <h1 class="section-title position-relative text-center mb-5">List Customer Information</h1>
+        </div>
+    </div>
+</div>
+
+<table class="table">
+    <tr>
+        <th>No. </th>
+        <th>
+            Name
+        </th>
+
+
+        <th>
+            Email
+        </th>
+        <th>
+            Birthday
+        </th>
+        <th>
+            Status
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@num</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_name)
+            </td>
+
+
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_birthday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customer_status)
+            </td>
+
+            <td>
+
+                @Html.ActionLink("Details", "Details", new { id = item.customer_id })
+            </td>
+        </tr>
+
+        {
+            num++;
+        }
+    }
+
+</table>

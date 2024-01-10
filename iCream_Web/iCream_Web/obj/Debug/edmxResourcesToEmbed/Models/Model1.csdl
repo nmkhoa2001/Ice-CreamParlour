@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="iCreamModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="admin_id" />
+    </Key>
+    <Property Name="admin_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="admin_pass" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Category_Recipe">
+    <Key>
+      <PropertyRef Name="category_name" />
+    </Key>
+    <Property Name="category_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="category_id" Type="Int32" />
+    <NavigationProperty Name="Recipe_Viewer" Relationship="Self.FK_Recipe_Viewer_Category_Recipe" FromRole="Category_Recipe" ToRole="Recipe_Viewer" />
+  </EntityType>
+  <EntityType Name="Feedback">
+    <Key>
+      <PropertyRef Name="feedback_id" />
+    </Key>
+    <Property Name="feedback_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="feedback_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="feedback_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="feedback_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="feedback_type" Type="Int32" />
+    <Property Name="feedback_text" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Recipe_Viewer">
+    <Key>
+      <PropertyRef Name="recipeV_id" />
+    </Key>
+    <Property Name="recipeV_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="caterory_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="recipeV_nameViewer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="recipeV_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="recipeV_price" Type="Int32" />
+    <Property Name="recipeV_img" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="recipe_status" Type="Int32" />
+    <Property Name="recipeV_text" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Category_Recipe" Relationship="Self.FK_Recipe_Viewer_Category_Recipe" FromRole="Recipe_Viewer" ToRole="Category_Recipe" />
+  </EntityType>
+  <Association Name="FK_Recipe_Viewer_Category_Recipe">
+    <End Role="Category_Recipe" Type="Self.Category_Recipe" Multiplicity="0..1" />
+    <End Role="Recipe_Viewer" Type="Self.Recipe_Viewer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category_Recipe">
+        <PropertyRef Name="category_name" />
+      </Principal>
+      <Dependent Role="Recipe_Viewer">
+        <PropertyRef Name="caterory_name" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="iCreamEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="Category_Recipe" EntityType="Self.Category_Recipe" />
+    <EntitySet Name="Feedbacks" EntityType="Self.Feedback" />
+    <EntitySet Name="Recipe_Viewer" EntityType="Self.Recipe_Viewer" />
+    <AssociationSet Name="FK_Recipe_Viewer_Category_Recipe" Association="Self.FK_Recipe_Viewer_Category_Recipe">
+      <End Role="Category_Recipe" EntitySet="Category_Recipe" />
+      <End Role="Recipe_Viewer" EntitySet="Recipe_Viewer" />
+    </AssociationSet>
+    <EntitySet Name="FaQs" EntityType="iCreamModel.FaQ" />
+    <EntitySet Name="Customer_1" EntityType="iCreamModel.Customer_1" />
+    <EntitySet Name="Books" EntityType="iCreamModel.Book" />
+  </EntityContainer>
+  <EntityType Name="FaQ">
+    <Key>
+      <PropertyRef Name="faq_id" />
+    </Key>
+    <Property Name="faq_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="faq_type" Type="Int32" />
+    <Property Name="faq_nameViewer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="faq_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="faq_phone" Type="Int32" />
+    <Property Name="faq_text" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Customer_1">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="customer_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="customer_pass" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="customer_repass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="customer_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="customer_birthday" Type="DateTime" Precision="0" />
+    <Property Name="customer_status" Type="Int32" />
+    <Property Name="customer_cardNumber" Type="Int32" />
+    <Property Name="customer_cardsName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="customer_cardCVV" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="book_id" />
+    </Key>
+    <Property Name="book_id" Type="Int32" Nullable="false" />
+    <Property Name="book_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="book_discount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="book_price" Type="Int32" />
+    <Property Name="book_quantity" Type="Int32" />
+    <Property Name="book_img" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

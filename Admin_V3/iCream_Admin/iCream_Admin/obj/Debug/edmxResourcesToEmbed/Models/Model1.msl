@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="iCreamModelStoreContainer" CdmEntityContainer="iCreamEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="iCreamModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+          <ScalarProperty Name="admin_pass" ColumnName="admin_pass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Category_Recipe">
+      <EntityTypeMapping TypeName="iCreamModel.Category_Recipe">
+        <MappingFragment StoreEntitySet="Category_Recipe">
+          <ScalarProperty Name="category_name" ColumnName="category_name" />
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbacks">
+      <EntityTypeMapping TypeName="iCreamModel.Feedback">
+        <MappingFragment StoreEntitySet="Feedback">
+          <ScalarProperty Name="feedback_id" ColumnName="feedback_id" />
+          <ScalarProperty Name="feedback_name" ColumnName="feedback_name" />
+          <ScalarProperty Name="feedback_email" ColumnName="feedback_email" />
+          <ScalarProperty Name="feedback_phone" ColumnName="feedback_phone" />
+          <ScalarProperty Name="feedback_type" ColumnName="feedback_type" />
+          <ScalarProperty Name="feedback_text" ColumnName="feedback_text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recipe_Viewer">
+      <EntityTypeMapping TypeName="iCreamModel.Recipe_Viewer">
+        <MappingFragment StoreEntitySet="Recipe_Viewer">
+          <ScalarProperty Name="recipeV_id" ColumnName="recipeV_id" />
+          <ScalarProperty Name="caterory_name" ColumnName="caterory_name" />
+          <ScalarProperty Name="recipeV_nameViewer" ColumnName="recipeV_nameViewer" />
+          <ScalarProperty Name="recipeV_name" ColumnName="recipeV_name" />
+          <ScalarProperty Name="recipeV_price" ColumnName="recipeV_price" />
+          <ScalarProperty Name="recipeV_img" ColumnName="recipeV_img" />
+          <ScalarProperty Name="recipe_status" ColumnName="recipe_status" />
+          <ScalarProperty Name="recipeV_text" ColumnName="recipeV_text" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FaQs">
+      <EntityTypeMapping TypeName="iCreamModel.FaQ">
+        <MappingFragment StoreEntitySet="FaQ">
+          <ScalarProperty Name="faq_text" ColumnName="faq_text" />
+          <ScalarProperty Name="faq_phone" ColumnName="faq_phone" />
+          <ScalarProperty Name="faq_email" ColumnName="faq_email" />
+          <ScalarProperty Name="faq_nameViewer" ColumnName="faq_nameViewer" />
+          <ScalarProperty Name="faq_type" ColumnName="faq_type" />
+          <ScalarProperty Name="faq_id" ColumnName="faq_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customer_1">
+      <EntityTypeMapping TypeName="iCreamModel.Customer_1">
+        <MappingFragment StoreEntitySet="Customer_1">
+          <ScalarProperty Name="customer_cardCVV" ColumnName="customer_cardCVV" />
+          <ScalarProperty Name="customer_cardsName" ColumnName="customer_cardsName" />
+          <ScalarProperty Name="customer_cardNumber" ColumnName="customer_cardNumber" />
+          <ScalarProperty Name="customer_status" ColumnName="customer_status" />
+          <ScalarProperty Name="customer_birthday" ColumnName="customer_birthday" />
+          <ScalarProperty Name="customer_email" ColumnName="customer_email" />
+          <ScalarProperty Name="customer_repass" ColumnName="customer_repass" />
+          <ScalarProperty Name="customer_pass" ColumnName="customer_pass" />
+          <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="iCreamModel.Book">
+        <MappingFragment StoreEntitySet="Book">
+          <ScalarProperty Name="book_img" ColumnName="book_img" />
+          <ScalarProperty Name="book_quantity" ColumnName="book_quantity" />
+          <ScalarProperty Name="book_price" ColumnName="book_price" />
+          <ScalarProperty Name="book_discount" ColumnName="book_discount" />
+          <ScalarProperty Name="book_name" ColumnName="book_name" />
+          <ScalarProperty Name="book_id" ColumnName="book_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

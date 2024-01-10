@@ -1,0 +1,72 @@
+﻿@model iCream_Web.Models.Feedback
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<br />
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal text-center">
+        <h4>Feedback</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group row">
+        @Html.LabelFor(model => model.feedback_name, "Name", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.feedback_name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.feedback_name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.feedback_email, "Email", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.feedback_email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.feedback_email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.feedback_phone, "Phone", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.feedback_phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.feedback_phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.feedback_type, "Type", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.feedback_type, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.feedback_type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.feedback_text, "Text", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-5">
+                <textarea id="feedback_text" name="feedback_text" rows="3" cols="3" class="form-control"></textarea>
+                @Html.ValidationMessageFor(model => model.feedback_text, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a href="https://localhost:44362/Home/About" class="btn btn-primary" role="button">Home</a>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

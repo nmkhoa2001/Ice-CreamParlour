@@ -1,0 +1,115 @@
+﻿@model iCream_Web.Models.Customer_1
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<br />
+<br />
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal text-center">
+        <h4>Register</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group row text-center">
+            @Html.LabelFor(model => model.customer_id, "Id", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.customer_id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.customer_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.customer_name, "Name", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.customer_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.customer_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.customer_pass, "PassWord", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-4">
+                @Html.PasswordFor(model => model.customer_pass, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.customer_pass, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.customer_repass, "Confirm PassWord", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-4">
+                @Html.PasswordFor(model => model.customer_repass, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.customer_repass, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.customer_email, "Email", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.customer_email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.customer_email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.customer_birthday, "BirthDay", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.customer_birthday, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.customer_birthday, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.customer_status, "Type", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-4">
+                <select name="customer_type">
+                    <option value="1">1 month - 15$</option>
+                    <option value="2">1 year - 150$</option>
+                </select>
+                @Html.ValidationMessageFor(model => model.customer_status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.customer_cardNumber, "CardNumber", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.customer_cardNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.customer_cardNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.customer_cardsName, "CardsName", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-4">
+                @Html.TextBoxFor(model => model.customer_cardsName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.customer_cardsName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.customer_cardCVV, "CVV", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-4">
+                @Html.PasswordFor(model => model.customer_cardCVV, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.customer_cardCVV, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row text-center">
+            <div class="col-md-offset-2 col-md-12 ">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

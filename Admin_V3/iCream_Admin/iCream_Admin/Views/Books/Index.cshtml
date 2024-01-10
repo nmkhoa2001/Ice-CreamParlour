@@ -1,0 +1,71 @@
+﻿@model IEnumerable<iCream_Admin.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int num = 1;
+}
+<br/>
+<!-- Portfolio Start -->
+<div class="container-fluid py-3 px-3">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <h1 class="section-title position-relative text-center mb-5">List Book Information</h1>
+        </div>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>No. </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Discount
+        </th>
+        <th>
+            Price
+        </th>
+        <th>
+            Quantity
+        </th>
+        <th>
+            Img
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@num </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.book_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.book_discount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.book_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.book_quantity)
+            </td>
+            <td>
+                <img src="~/UploadsBook/@item.book_img" width="50" height="40" alt="">
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.book_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.book_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.book_id })
+            </td>
+        </tr>
+        {
+            num++;
+        }
+    }
+
+</table>

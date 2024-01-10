@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\iCream_Admin",
+    "\\iCream_Admin\\Views",
+    "\\iCream_Admin\\Views\\Recipes",
+    "\\iCream_Admin\\Views\\Recipe_Viewer"
+  ],
+  "SelectedNode": "\\iCream_Admin\\Views\\Recipe_Viewer\\Index.cshtml",
+  "PreviewInSolutionExplorer": false
+}

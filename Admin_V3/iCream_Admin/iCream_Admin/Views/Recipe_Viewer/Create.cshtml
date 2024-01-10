@@ -1,0 +1,94 @@
+﻿@model iCream_Admin.Models.Recipe_Viewer
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Portfolio Start -->
+<div class="container-fluid py-5 px-0">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <h1 class="section-title position-relative text-center mb-5">Create Recipe Ice Cream</h1>
+        </div>
+    </div>
+</div>
+
+
+@using (Html.BeginForm("Create", "Recipe_Viewer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group row">
+        @Html.LabelFor(model => model.caterory_name, "Caterory Name", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+        <div class="col-md-5">
+            @Html.DropDownList("caterory_name", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.caterory_name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.recipeV_nameViewer, "Name Viewer", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.recipeV_nameViewer, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.recipeV_nameViewer, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.recipeV_name, "Recipe Name", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.recipeV_name, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.recipeV_name, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.recipeV_price, "Price", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.recipeV_price, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.recipeV_price, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.recipeV_img, "Img", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+        <div class="col-md-5">
+            <input type="file" name="recipev_imgFile" id="recipeV_imgFile">
+            @Html.ValidationMessageFor(model => model.recipeV_img, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.recipe_status, "Statu", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.recipe_status, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.recipe_status, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(model => model.recipeV_text, "Text", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+        <div class="col-md-5">
+            <textarea id="recipe_text" name="recipeV_text" rows="3" cols="3" class="form-control"></textarea>
+            @Html.ValidationMessageFor(model => model.recipeV_text, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-12 py-2 text-center">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </div>
+    <div class="col-12 py-2 text-center">
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,74 @@
+﻿@model iCream_Admin.Models.Book
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<!-- Portfolio Start -->
+<div class="container-fluid py-5 px-0">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <h1 class="section-title position-relative text-center mb-5">Edit Book</h1>
+        </div>
+    </div>
+</div>
+
+@using (Html.BeginForm("Edit", "Books", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.book_id)
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.book_name, "Name", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.book_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.book_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.book_discount, "Discount", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.book_discount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.book_discount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.book_price, "Price", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.book_price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.book_price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.book_quantity, "Quantity", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.book_quantity, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.book_quantity, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group row">
+            @Html.LabelFor(model => model.book_img, "Img", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-5">
+                <img src="~/UploadsBook/@Model.book_img" width="50" height="40" alt="">
+                <input type="file" name="book_imgFile" id="book_imgFile">
+                @Html.ValidationMessageFor(model => model.book_img, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-12 py-2 text-center">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}

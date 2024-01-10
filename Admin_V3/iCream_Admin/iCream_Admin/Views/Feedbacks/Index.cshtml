@@ -1,0 +1,71 @@
+﻿@model IEnumerable<iCream_Admin.Models.Feedback>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int num = 1;
+}
+<br />
+<!-- Portfolio Start -->
+<div class="container-fluid py-3 px-3">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <h1 class="section-title position-relative text-center mb-5">List Feedback Information</h1>
+        </div>
+    </div>
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>No. </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Phone
+        </th>
+        <th>
+            Type
+        </th>
+        <th>
+            Text
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@num</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.feedback_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.feedback_email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.feedback_phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.feedback_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.feedback_text)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.feedback_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.feedback_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.feedback_id })
+            </td>
+        </tr>
+
+        {
+            num++;
+        }
+    }
+
+</table>

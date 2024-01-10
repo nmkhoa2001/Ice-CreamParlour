@@ -1,0 +1,55 @@
+﻿@model IEnumerable<iCream_Web.Models.Recipe_Viewer>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPageofCustomer.cshtml";
+}
+
+
+<!-- Header Start -->
+<div class="jumbotron jumbotron-fluid page-header" style="margin-bottom: 90px;">
+    <div class="container text-center py-5">
+        <h1 class="text-white display-3 mt-lg-5">Recipe</h1>
+        <div class="d-inline-flex align-items-center text-white">
+            <p class="m-0"><a class="text-white" href="https://localhost:44362/Recipe_Viewer/Create">Order</a></p>
+            <i class="fa fa-circle px-3"></i>
+            <p class="m-0"><a class="text-white" href="https://localhost:44362/Recipe_Viewer/Index">Recipe</a></p>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+
+<!-- Portfolio Start -->
+<div class="container-fluid py-5 px-0">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-5">
+                <h1 class="section-title position-relative text-center mb-5">Delicious Ice Cream Made From Our Very Own Organic Milk</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <a href="https://localhost:44362/Recipe_Viewer/Create" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create Recipe</a>
+
+            </div>
+
+        </div>
+        <br /><br />
+        <div class="row m-0 portfolio-container">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 p-0 portfolio-item">
+                    <div class="position-relative overflow-hidden">
+                        <img src="~/UploadsViewer/@item.recipeV_img" width="450" height="430" alt="">
+
+                        <p>
+                            @Html.ActionLink("Details", "Details", new { id = item.recipeV_id }) 
+                        </p>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+<!-- Portfolio End -->

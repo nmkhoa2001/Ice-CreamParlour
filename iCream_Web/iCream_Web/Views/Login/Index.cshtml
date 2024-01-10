@@ -1,0 +1,65 @@
+﻿@model iCream_Web.Models.Customer_1
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+<!-- Header Start -->
+<div class="jumbotron jumbotron-fluid page-header" style="margin-bottom: 90px;">
+    <div class="container text-center py-5">
+        <h1 class="text-white display-3 mt-lg-5">Ice cream</h1>
+    </div>
+</div>
+<!-- Header End -->
+<!-- Portfolio Start -->
+<div class="container-fluid py-2 px-0">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <h1 class="section-title position-relative text-center mb-5">Login</h1>
+        </div>
+    </div>
+</div>
+<!-- Portfolio End -->
+@using (Html.BeginForm("Index", "Login", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal text-center">
+        <hr />
+        @if (ViewBag.Error != null)
+        {
+            <h3 style="color:red">@ViewBag.Error</h3>
+        }
+        <div class="form-group row ">
+            @Html.LabelFor(model => model.customer_id, "Id", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-5">
+                @Html.TextBoxFor(model => model.customer_id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.customer_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group row ">
+            @Html.LabelFor(model => model.customer_pass, "Password", htmlAttributes: new { @class = "control-label col-md-4 text-right" })
+            <div class="col-md-5">
+                @Html.PasswordFor(model => model.customer_pass, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.customer_pass, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group row text-center ">
+            <div class="col-md-offset-2 col-md-12">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

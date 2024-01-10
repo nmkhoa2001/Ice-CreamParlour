@@ -1,0 +1,72 @@
+﻿@model IEnumerable<iCream_Admin.Models.FaQ>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int num = 1;
+}
+<br/>
+<!-- Portfolio Start -->
+<div class="container-fluid py-3 px-3">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <h1 class="section-title position-relative text-center mb-5">List FaQs Information</h1>
+        </div>
+    </div>
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>No. </th>
+        <th>
+            Type
+        </th>
+        <th>
+            NameViewer
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Phone
+        </th>
+        <th>
+            Text
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@num</td>
+            <td>
+                @Html.DisplayFor(modelItem => item.faq_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.faq_nameViewer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.faq_email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.faq_phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.faq_text)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.faq_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.faq_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.faq_id })
+            </td>
+        </tr>
+
+        {
+            num++;
+
+        }
+    }
+
+</table>
